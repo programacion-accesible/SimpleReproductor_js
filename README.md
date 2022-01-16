@@ -1,7 +1,7 @@
 # SimpreReproductor_js
 
 Este es un sencillo reproductor de audio diseñado para obtener un buen funcionamiento con lectores de pantalla. Programado en JavaScript vanilla y sin dependencias.  
-[Demo](http://gera.ar/reproductor "Se abre en nueva pestaña")  
+[Demo](http://gera.ar/reproductor "Demostración en la página gera.ar")  
 
 ## ¿Como funciona?
 
