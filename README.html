@@ -1,0 +1,16 @@
+<h1 id="simprereproductor_js">SimpreReproductor_js</h1>
+<p>Este es un sencillo reproductor de audio diseñado para obtener un buen funcionamiento con lectores de pantalla. Programado en JavaScript vanilla y sin dependencias.<br />
+<a href="http://gera.ar/reproductor" title="Se abre en nueva pestaña">Demo</a></p>
+<h2 id="como-funciona">¿Como funciona?</h2>
+<p>Al terminar de cargarse el documento html recorre los elementos del dom en busca de objetos con la etiqueta audio. Construye en base al id de cada objeto los botones y funciones necesarias agregándolos al documento en caliente. Al pulsar el botón de reproducción en el documento se crean los atajos de cada acción y se asignan las funciones de cada botón. Si hay más de un elemento audio, al pulsar el botón de reproducción en otro elemento se eliminan los atajos asignados previamente, y se crean los nuevos en base al actual elemento. .</p>
+<h2 id="como-se-utiliza">¿Como se utiliza?</h2>
+<p>En nuestro documento html debemos importar el archivo reproductor.js, y crear la etiqueta de audio con un id diferente por cada etiqueta junto a su atributo src correspondiente del archivo a reproducir. El script realiza las asignaciones colocando los atajos de teclado siguientes:</p>
+<ul>
+<li>Reproducir, pausar; alt + k</li>
+<li>Adelantar 10 segundos; alt + l</li>
+<li>Retroceder 10 segundos; alt + j</li>
+<li>Verbalizar el tiempo actual de reproducción y el total del archivo; alt + i</li>
+<li>Bajar el volúmen un 10 porciento; alt + o</li>
+<li>Subir el volúmen un 10 porciento; alt + u</li>
+<li>Silenciar y quitar silencio; alt + m</li>
+</ul>
