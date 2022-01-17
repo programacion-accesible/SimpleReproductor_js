@@ -1,0 +1,12 @@
+﻿.buttons_list {
+	list-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	background-color:silver;
+}
+.buttons_list button {
+	color: green;
+	font-size:25pt;
+	margin-left: auto;
+	margin-right: auto;
+}

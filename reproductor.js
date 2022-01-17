@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		element.setAttribute("onTimeUpdate", `audioTime("${id}");`);
 		//añadimos la lista con botones de control luego del elemento audio. Primero creamos un nodo nuevo, le añadimos la lista de controles html y finalmente lo añadimos seguidamente al elemento audio con la función insertAfter.
 		let new_element = document.createElement("div");
-		new_element.innerHTML = `<ul style="list-style:none;margin-left:auto;margin-right:auto;">
+		new_element.innerHTML = `<ul class="buttons_list">
 		<li><button id="${id}_toggle" onClick='playPause("${id}");'>reproducir</button></li>
 		<li><button id="${id}_back" onClick='timeBack();'>Retroceder 10 segundos</button></li>
 		<li><p id="${id}_time" onClick='speak(this.textContent);'>0:00</p></li>
