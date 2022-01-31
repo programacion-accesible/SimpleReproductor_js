@@ -17,16 +17,26 @@ document.addEventListener("DOMContentLoaded", function () {
 		element.setAttribute("onTimeUpdate", `audioTime("${id}");`);
 		//añadimos la lista con botones de control luego del elemento audio. Primero creamos un nodo nuevo, le añadimos la lista de controles html y finalmente lo añadimos seguidamente al elemento audio con la función insertAfter.
 		let new_element = document.createElement("div");
-		new_element.innerHTML = `<ul class="buttons_list">
-		<li><button id="${id}_toggle" onClick='playPause("${id}");'>reproducir</button></li>
-		<li><button id="${id}_back" onClick='timeBack();'>Retroceder 10 segundos</button></li>
-		<li><p id="${id}_time" onClick='speak(this.textContent);'>0:00</p></li>
-		<li><button id="${id}_advance" onClick='timeAdvance();'>Adelantar 10 segundos</button></li>
-		<li><label>Velocidad de reproducción><input type="range" min="0" max="100" step="10" value="50" onChange='audioRate(this.value)' /></label></li>
-		<li><button id="${id}_down" onClick='volumeDown();'>Bajar volúmen</button></li>
-		<li><button id="${id}_toggle_mute" onClick='toggleMute();'>Silenciar, Quitar silencio</button></li>
-		<li><button id="${id}_up" onClick='volumeUp();'>Subir volúmen</button></li>
-		<div id="${id}_alert" aria-live="assertive"></div>
+		new_element.innerHTML = `<ul style="list-style:none;margin-left:auto;margin-right:auto;">
+			<li><button id="${id}_hksbtn" onClick='hotkeys("${id}", this.textContent);'>Mostrar los atajos del reproductor</button></li>
+			<div id="${id}_hks" style="display:none;">
+				<p>Una vez pulsado el botón de reproducción por primera vez, están disponibles los siguientes atajos:</p>
+				<p>Adelantar; alt + l</p>
+				<p>Retroceder; alt + j</p>
+				<p>Subir volúmen; alt + u</p>
+				<p>Bajar volúmen; alt + o</p>
+				<p>Silenciar y quitar silencio; alt + m</p>
+				<p>Verbalizar el tiempo actual y total del audio en curso; alt + i</p>
+			</div>
+			<li><button id="${id}_toggle" onClick='playPause("${id}");'>reproducir</button></li>
+			<li><button id="${id}_back" onClick='timeBack();'>Retroceder 10 segundos</button></li>
+			<li><p id="${id}_time" onClick='speak(this.textContent);'>0:00</p></li>
+			<li><button id="${id}_advance" onClick='timeAdvance();'>Adelantar 10 segundos</button></li>
+			<li><label>Velocidad de reproducción><input type="range" min="0" max="100" step="10" value="50" onChange='audioRate(this.value)' /></label></li>
+			<li><button id="${id}_down" onClick='volumeDown();'>Bajar volúmen</button></li>
+			<li><button id="${id}_toggle_mute" onClick='toggleMute();'>Silenciar, Quitar silencio</button></li>
+			<li><button id="${id}_up" onClick='volumeUp();'>Subir volúmen</button></li>
+			<div id="${id}_alert" aria-live="assertive"></div>
 		</ul>`;
 	insertAfter(element, new_element);
 	}
@@ -157,5 +167,15 @@ function toggleMute() {
 	} else {
 		audio_obj.muted = false;
 		speak("no silenciado");
+	}
+}
+
+function hotkeys(id, text) {
+	if (text == "Mostrar los atajos del reproductor") {
+		document.getElementById(`${id}_hksbtn`).textContent = "Ocultar los atajos del reproductor";
+		document.getElementById(`${id}_hks`).removeAttribute("style");
+	} else {
+			document.getElementById(`${id}_hksbtn`).textContent = "Mostrar los atajos del reproductor";
+			document.getElementById(`${id}_hks`).setAttribute("style", "display:none");
 	}
 }
