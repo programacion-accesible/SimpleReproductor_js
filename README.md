@@ -1,7 +1,6 @@
 # SimpreReproductor_js
 
 Este es un sencillo reproductor de audio diseñado para obtener un buen funcionamiento con lectores de pantalla. Programado en JavaScript vanilla y sin dependencias.  
-[Demo](http://gera.ar/reproductor "Demostración en la página gera.ar")  
 
 ## ¿Como funciona?
 
@@ -23,4 +22,8 @@ El script realiza las asignaciones colocando los atajos de teclado siguientes:
 * Subir el volúmen un 10 porciento; alt + u
 * Silenciar y quitar silencio; alt + m
 
+## Rama single
 
+En la rama single hay una versión más sencilla que solo trabaja con un elemento audio.
+
+El script js inserta la lista de botones con los manejadores de eventos y los atajos de teclado.
